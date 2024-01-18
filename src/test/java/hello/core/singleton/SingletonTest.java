@@ -34,4 +34,19 @@ public class SingletonTest {
         Assertions.assertSame(instance1, instance2);
     }
 
+    @Test
+    @DisplayName("스프링 컨테이너와 싱글톤")
+    void springContainer() {
+        AnnotationConfigApplicationContext appConfig = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        // 1. 조회 : 호출할 때 마다 객체를 생성
+        MemberService memberService1 = appConfig.getBean("memberService", MemberService.class);
+
+        // 2. 조회 : 호출할 때 마다 객체를 생성
+        MemberService memberService2 = appConfig.getBean("memberService", MemberService.class);
+
+        // 참조값이 다른 것을 확인
+        Assertions.assertSame(memberService1, memberService2);
+    }
+
 }
