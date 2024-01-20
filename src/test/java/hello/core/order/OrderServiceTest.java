@@ -34,4 +34,5 @@ public class OrderServiceTest {
         // then
         Assertions.assertEquals(order.getDiscountPrice(), 1000);
     }
+
 }
