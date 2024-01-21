@@ -20,9 +20,9 @@ public class AutoAppConfig {
     // 이 경우 수동 빈 등록이 우선권을 가진다.
     // 수동 빈이 자동 빈을 오버라이딩
     // 에러가 나도록 스프링부트에서 최근 바뀜...
-    @Bean(name = "memoryMemberRepository")
-    MemberRepository memberRepository() {
-        return new MemoryMemberRepository();
-    }
+//    @Bean(name = "memoryMemberRepository")
+//    MemberRepository memberRepository() {
+//        return new MemoryMemberRepository();
+//    }
 
 }
