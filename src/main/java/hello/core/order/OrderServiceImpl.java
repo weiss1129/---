@@ -3,10 +3,12 @@ package hello.core.order;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor // lombok 생성자 자동 생성
 public class OrderServiceImpl implements OrderService {
 
     // 필드 주입
@@ -33,15 +35,15 @@ public class OrderServiceImpl implements OrderService {
 
     // 생성자 주입... 필수적으로 의존관계 주입
     // 거의 생성자 주입을 쓴다
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        // 생성자 주입 vs setter 주입 
-        // 순서는 보장되지 않는다
-        System.out.println("1. memberRepository = " + memberRepository);
-        System.out.println("1. discountPolicy = " + discountPolicy);
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+//    @Autowired 생략가능. 생성자 하나만 있을때는
+//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//        // 생성자 주입 vs setter 주입
+//        // 순서는 보장되지 않는다
+//        System.out.println("1. memberRepository = " + memberRepository);
+//        System.out.println("1. discountPolicy = " + discountPolicy);
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
