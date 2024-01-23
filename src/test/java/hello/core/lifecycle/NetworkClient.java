@@ -1,5 +1,7 @@
 package hello.core.lifecycle;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
@@ -39,6 +41,7 @@ public class NetworkClient  {
         System.out.println("close = " + url);
     }
 
+    @PostConstruct // 가장 권장하는 방법, 자바 표준 JSR-250
     public void init() throws Exception {
 //        System.out.println("NetworkClient.afterPropertiesSet");
         System.out.println("NetworkClient.init");
@@ -46,6 +49,7 @@ public class NetworkClient  {
         call("초기화 연결 메시지");
     }
 
+    @PreDestroy
     public void close() throws Exception {
 //        System.out.println("NetworkClient.destroy");
         System.out.println("NetworkClient.close");
