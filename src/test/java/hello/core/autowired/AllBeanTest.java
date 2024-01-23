@@ -34,6 +34,8 @@ public class AllBeanTest {
 
     }
 
+    // 사실 이런경우 남이보면 난감하다...
+    // 이경우에는 수동 빈 등록이 나을수도
     @Component
     static class DiscountService {
         private final Map<String, DiscountPolicy> policyMap;
