@@ -40,8 +40,8 @@ public class OrderServiceImpl implements OrderService {
     public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         // 생성자 주입 vs setter 주입
         // 순서는 보장되지 않는다
-        System.out.println("1. memberRepository = " + memberRepository);
-        System.out.println("1. discountPolicy = " + discountPolicy);
+//        System.out.println("1. memberRepository = " + memberRepository);
+//        System.out.println("1. discountPolicy = " + discountPolicy);
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
