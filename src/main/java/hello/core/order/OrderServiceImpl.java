@@ -1,5 +1,6 @@
 package hello.core.order;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
@@ -36,7 +37,7 @@ public class OrderServiceImpl implements OrderService {
     // 생성자 주입... 필수적으로 의존관계 주입
     // 거의 생성자 주입을 쓴다
     @Autowired // 생략가능. 생성자 하나만 있을때는
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         // 생성자 주입 vs setter 주입
         // 순서는 보장되지 않는다
         System.out.println("1. memberRepository = " + memberRepository);
